@@ -2,9 +2,10 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 // Your JavaScript code goes here!
+const modal = document.querySelector("#modal")
+modal.classList.add("hidden");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.querySelector("#modal")
   const hearts = document.getElementsByClassName("like-glyph")
 
   for (const heart of hearts){
@@ -25,12 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
       })
 
       .catch(error => {
-        modal.hidden = false
+        //modal.hidden = false
+        modal.classList.remove("hidden");
         const modalMessage = document.querySelector("#modal-message")
         modalMessage.innerText = error
         setTimeout(() => {
           //do this during timeout
-          modal.hidden = true
+          //modal.hidden = true
+          modal.classList.add("hidden");
         }, 5000)
       })
 
